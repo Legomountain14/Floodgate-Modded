@@ -13,14 +13,14 @@ jobs:
       - name: Build Floodgate-Modded
         run: ./gradlew build
 
-      - name: Publish to Modrinth
-        if: ${{ success() && github.repository == 'GeyserMC/Floodgate-Modded' && github.ref_name == 'master' }}
-        uses: gradle/gradle-build-action@3bfe3a46584a206fb8361cdedd0647b0c4204232
-        env:
-          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
-        with:
-          arguments: modrinth
-          gradle-home-cache-cleanup: true
+#      - name: Publish to Modrinth
+#        if: ${{ success() && github.repository == 'GeyserMC/Floodgate-Modded' && github.ref_name == 'master' }}
+#        uses: gradle/gradle-build-action@3bfe3a46584a206fb8361cdedd0647b0c4204232
+#        env:
+#          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+#        with:
+#          arguments: modrinth
+#          gradle-home-cache-cleanup: true
 
       - name: Archive Artifacts
         uses: GeyserMC/actions/upload-multi-artifact@master
